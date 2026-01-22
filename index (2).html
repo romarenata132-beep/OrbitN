@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ORBIT Bot - Painel</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="theme-dark">
+
+    <div id="loader-screen">
+        <div class="loader-content" style="text-align: center;">
+            <div class="spinner"></div>
+            <h2 style="margin-bottom: 5px;">Sincronizando Orbit...</h2>
+        </div>
+    </div>
+
+    <nav>
+        <div class="logo-area"><div class="logo-text">ORBIT</div></div>
+        <div class="nav-link active" onclick="openTab(event, 'dashboard')"><i class="fas fa-chart-line"></i> Dashboard</div>
+        <div class="nav-link" onclick="openTab(event, 'comandos')"><i class="fas fa-terminal"></i> Comandos</div>
+        <div class="nav-link" onclick="openTab(event, 'premium')"><i class="fas fa-crown"></i> Premium</div>
+        <div class="nav-link" onclick="openTab(event, 'termos')"><i class="fas fa-file-contract"></i> Termos</div>
+    </nav>
+
+    <main>
+        <div class="top-settings">
+            <button id="menu-btn" onclick="toggleMenu(event)"><i class="fas fa-palette"></i></button>
+            <div class="dropdown" id="settings-dropdown">
+                <div class="drop-item" onclick="setTheme('dark')"><i class="fas fa-moon"></i> Tema Preto</div>
+                <div class="drop-item" onclick="setTheme('light')"><i class="fas fa-sun"></i> Tema Branco</div>
+                <div class="drop-item" onclick="setTheme('purple')"><i class="fas fa-magic"></i> Tema Roxo</div>
+            </div>
+        </div>
+
+        <div id="dashboard" class="tab-content active">
+            <h1>Visão Geral</h1><br>
+            <div class="stats-grid">
+                <div class="stat-card"><i class="fas fa-users"></i><h3>54</h3><p>Usuários Totais</p></div>
+                <div class="stat-card"><i class="fas fa-bolt"></i><h3>90.4k</h3><p>Comandos Executados</p></div>
+                <div class="stat-card"><i class="fas fa-star" style="color: var(--accent);"></i><h3>4.8 ★</h3><p>Avaliação Média</p></div>
+            </div>
+        </div>
+
+        <div id="comandos" class="tab-content">
+            <h1>Painel de Comandos</h1><br>
+            <h2 class="command-group-title"><i class="fas fa-coins" style="color: var(--accent);"></i> Economia</h2>
+            <div class="command-grid">
+                <div class="cmd-card"><span class="cmd-badge badge-econ">Economia</span><span class="cmd-name">!saldo</span></div>
+                <div class="cmd-card"><span class="cmd-badge badge-econ">Economia</span><span class="cmd-name">!rank</span></div>
+                <div class="cmd-card"><span class="cmd-badge badge-econ">Economia</span><span class="cmd-name">!daily</span></div>
+                <div class="cmd-card"><span class="cmd-badge badge-econ">Economia</span><span class="cmd-name">!pay</span></div>
+                <div class="cmd-card"><span class="cmd-badge badge-econ">Economia</span><span class="cmd-name">!apostar</span></div>
+            </div>
+            <h2 class="command-group-title"><i class="fas fa-comment-dots" style="color: var(--primary);"></i> Interação</h2>
+            <div class="command-grid">
+                <div class="cmd-card"><span class="cmd-badge badge-util">Interação</span><span class="cmd-name">!site</span></div>
+                <div class="cmd-card"><span class="cmd-badge badge-util">Interação</span><span class="cmd-name">!menu</span></div>
+            </div>
+        </div>
+
+        <div id="premium" class="tab-content">
+            <div class="premium-container">
+                <div class="premium-title">🚀 ORBIT Premium</div>
+                <div class="premium-subtitle">Impulsione suas Orbes e fortaleça o ecossistema do ORBIT.</div>
+                <div class="premium-plans">
+                    <div class="plan-card"><div class="plan-orbs">10.000 Orbes</div><div class="plan-price">R$ 0,50</div></div>
+                    <div class="plan-card plan-best"><div class="plan-orbs">150.000 Orbes</div><div class="plan-price">R$ 3,00</div></div>
+                    <div class="plan-card"><div class="plan-orbs">1.000.000 Orbes</div><div class="plan-price">R$ 10,50</div></div>
+                </div>
+                <p style="color: white; font-size: 0.8rem; opacity: 0.8;">* Os valores podem sofrer alterações sem aviso prévio.</p>
+            </div>
+        </div>
+
+        <div id="termos" class="tab-content">
+            <h1>Termos de Uso – Orbit Bot</h1>
+            <p style="margin-bottom: 20px; color: var(--text-dim);">Ao utilizar a Orbit, você declara estar ciente e de acordo com os termos abaixo:</p>
+            
+            <div class="terms-container">
+                <div class="terms-section">
+                    <h3>1. Aceitação dos Termos</h3>
+                    <p>O uso da Orbit implica na aceitação total e irrestrita destes Termos de Uso. Caso não concorde, recomenda-se a interrupção imediata do uso do bot.</p>
+                </div>
+                <div class="terms-section">
+                    <h3>2. Devolução de Dinheiro</h3>
+                    <p>A solicitação de reembolso de valores pagos em planos Premium poderá ser realizada em até 7 (sete) dias após a confirmação da compra. Após esse prazo, não será concedido reembolso, parcial ou integral, de assinaturas ou aquisições.</p>
+                </div>
+                <div class="terms-section">
+                    <h3>3. Conteúdo Sexual (+18)</h3>
+                    <p>A Orbit não permite, incentiva ou disponibiliza qualquer tipo de conteúdo sexual, pornográfico ou impróprio para menores de idade. O bot possui classificação livre, sendo destinado a usuários de todas as faixas etárias.</p>
+                </div>
+                <div class="terms-section">
+                    <h3>4. Uso Indevido da Plataforma</h3>
+                    <p>É proibido utilizar a Orbit para práticas ilegais, ofensivas, abusivas, discriminatórias ou que violem leis vigentes ou direitos de terceiros. O descumprimento poderá resultar em suspensão ou banimento permanente, sem aviso prévio.</p>
+                </div>
+                <div class="terms-section">
+                    <h3>5. Disponibilidade do Serviço</h3>
+                    <p>A Orbit poderá passar por períodos de manutenção, atualizações ou instabilidades técnicas. Não garantimos funcionamento contínuo ou ininterrupto, porém buscamos oferecer a melhor estabilidade possível.</p>
+                </div>
+                <div class="terms-section">
+                    <h3>6. Planos Premium</h3>
+                    <p>Os recursos Premium oferecem funcionalidades adicionais e exclusivas. A Orbit se reserva o direito de alterar, adicionar ou remover funcionalidades dos planos Premium sem aviso prévio.</p>
+                </div>
+                <div class="terms-section">
+                    <h3>7. Limitação de Responsabilidade</h3>
+                    <p>A Orbit não se responsabiliza por perdas, danos ou prejuízos decorrentes do uso indevido do bot, falhas externas do WhatsApp ou interrupções causadas por terceiros.</p>
+                </div>
+                <div class="terms-section" style="margin-bottom: 0;">
+                    <h3>8. Alterações nos Termos</h3>
+                    <p>Estes Termos de Uso podem ser modificados a qualquer momento. O uso contínuo da Orbit após alterações significa a aceitação automática dos novos termos.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="main.js"></script>
+</body>
+</html>
